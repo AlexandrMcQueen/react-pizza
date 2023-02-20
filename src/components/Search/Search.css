@@ -1,0 +1,30 @@
+.input__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.input__wrapper img {
+  position: absolute;
+  padding-left: 20px;
+}
+.input__wrapper .closeImg {
+  position: absolute;
+  top: 5px;
+  right: 9px;
+  cursor: pointer;
+}
+.input__wrapper .searchInput {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 12px 20px 12px 42px;
+  width: 400px;
+}
+@media screen and (max-width: 520px) {
+  .input__wrapper {
+    width: 80%;
+  }
+}
+
+/*# sourceMappingURL=Search.css.map */

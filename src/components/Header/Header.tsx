@@ -1,24 +1,30 @@
 import React from 'react';
-
+import logo from '../../assets/img/pizza-logo.svg'
+import {Link, useLocation} from "react-router-dom";
+import Search from "../Search/Search";
+import {useSelector} from "react-redux";
+import {cartSelector} from "../../redux/slices/cartSlice";
 
 export const Header = () => {
-
-    
-
+    const {totalPrice,items} = useSelector(cartSelector);
+    const location = useLocation();
     return (
         <div className="header">
 
             <div className="container">
-                <div className="header__logo">
-                   <img width={38} src= '/pizza-logo.svg' alt="Pizza-logo" />
-                    <div>
-                        <h1>React Pizza </h1>
-                        <p>найсмачніша піца в цілому світі</p>
-                    </div>
-                </div>
+                    <Link className='header__logo' to='/react-pizza'>
+                        <img width={38} src= {logo} alt="Pizza-logo" />
+
+                        <div>
+                            <h1>React Pizza v2</h1>
+                            <p>найсмачніша піца в цілому світі</p>
+                        </div>
+                     </Link>
+
+                <Search/>
                 <div className="header__cart">
-                    <a href="/" className="button button--cart">
-                        <span>520 uah.</span>
+                    {location.pathname !== '/cart' && <Link to='/cart' className="button button--cart">
+                        <span>{totalPrice} uah.</span>
                         <div className="button__delimiter"></div>
                         <svg
                             width="18"
@@ -49,8 +55,8 @@ export const Header = () => {
                                 strokeLinejoin="round"
                             />
                         </svg>
-                        <span>3</span>
-                    </a>
+                        <span>{items.length}</span>
+                    </Link>}
                 </div>
             </div>
         </div>

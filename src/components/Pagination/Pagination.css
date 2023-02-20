@@ -1,0 +1,25 @@
+.btnWrapper {
+  display: flex;
+  gap: 20px;
+}
+.btnWrapper .btn-pagination {
+  width: 35px;
+  height: 35px;
+  background-color: #fe5f1e;
+  border-radius: 20%;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.btnWrapper .btn-pagination:hover {
+  background-color: white;
+  color: #fe5f1e;
+  border: 2px solid #fe5f1e;
+}
+.btnWrapper .btn-pagination .selected {
+  background-color: white;
+  color: #fe5f1e;
+  border: 2px solid #fe5f1e;
+}
+
+/*# sourceMappingURL=Pagination.css.map */
