@@ -1,29 +1,33 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate, useParams} from "react-router";
 import axios from "axios";
-import {useDispatch, useSelector} from "react-redux";
-import {addProduct, selectCartItemById} from "../redux/slices/cartSlice";
+import {addProduct} from "../redux/slices/cart/slice";
 import {Link} from "react-router-dom";
+import {useAppDispatch} from "../redux/store";
 
-interface Ipizza {
-    imageUrl?: string,
-    sizes?: number[],
-    types?: number[],
-    title?: string,
-    description?: string,
-    price?: number,
+interface Pizza {
+    imageUrl: string;
+    sizes: number[];
+    types: number[];
+    title: string;
+    description: string;
+    price: number;
+    id: string;
 
 }
 const PizzaFull: React.FC = () => {
 
-    const [pizza,setPizza] = useState<Ipizza>();
-    const [activeType,setActiveType] = useState<number>(0);
-    const [sizeActive,setSizeActive] = useState<number>(0);
+    const [pizza,setPizza] = useState<Pizza>();
+    const [activeType,setActiveType] = useState(0);
+    const [sizeActive,setSizeActive] = useState(0);
     const typeNames : string[] = ['тонке',"традиційне"];
     const activeSizeValue : string[] = ['26','30','40'];
 
-    const { id } = useParams();
+    const {id} = useParams() ;
     const navigate = useNavigate();
+    const dispatch = useAppDispatch();
+
+
 
 
     useEffect(() => {
@@ -31,6 +35,7 @@ const PizzaFull: React.FC = () => {
             try {
                 const {data} = await axios.get('https://63c087ec99c0a15d28d7bb41.mockapi.io/pizzas/' + id);
                 setPizza(data);
+
             } catch (err){
                 navigate('/react-pizza');
                 alert('sorry,but something went wrong')
@@ -41,13 +46,14 @@ const PizzaFull: React.FC = () => {
     },[])
 
 
-    const dispatch = useDispatch();
-    const cartItem = useSelector(selectCartItemById);
-
-
     const onClickAdd = () => {
-        dispatch(addProduct( {count:0,...pizza,id,type:typeNames[activeType],size:activeSizeValue[sizeActive]}))
+        dispatch(addProduct(
+            //@ts-ignore
+            {count: 0,...pizza,id,type:typeNames[activeType],size:activeSizeValue[sizeActive]}
+        ))
     }
+
+
 
     if (!pizza) {
         return <h3 style={{textAlign:"center"}}>loading...</h3>

@@ -98,6 +98,13 @@ a {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
+  &:disabled {
+    opacity: 0.6;
+    background-color: transparent;
+    border: 1px solid darkgrey;
+
+  }
 }
 
 .button, .button span {
@@ -111,6 +118,7 @@ a {
 
 .button:hover {
   background-color: #f24701;
+
 }
 
 .button:active {
@@ -851,6 +859,8 @@ body {
       button {
         max-width: 200px;
         margin-left: 40px;
+
+
       }
     }
 

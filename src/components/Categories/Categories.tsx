@@ -1,11 +1,14 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {selectCategoryId, setCategoryId} from "../../redux/slices/filterSlice";
+import {setCategoryId} from "../../redux/slices/filter/slice";
+import {selectCategoryId} from '../../redux/slices/filter/selector'
 
-export const Categories : React.FC = () => {
+
+const categories = ['Всі',"М'ясні",'Вегетаріанська','Гриль','Гострі','Закриті'];
+    
+export const Categories : React.FC = React.memo( () => {
     const categoryId = useSelector(selectCategoryId);
     const dispatch = useDispatch();
-    const categories = ['Всі',"М'ясні",'Вегетаріанська','Гриль','Гострі','Закриті'];
 
     const onClickCategory = (id : number) : void => {
         dispatch(setCategoryId(id))
@@ -29,5 +32,5 @@ export const Categories : React.FC = () => {
         </div>
 
     );
-};
+});
 

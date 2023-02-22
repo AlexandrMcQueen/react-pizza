@@ -123,6 +123,11 @@ a {
   -ms-user-select: none;
   user-select: none;
 }
+.button:disabled {
+  opacity: 0.6;
+  background-color: transparent;
+  border: 1px solid darkgrey;
+}
 
 .button, .button span {
   color: #fff;

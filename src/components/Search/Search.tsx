@@ -3,7 +3,8 @@ import './Search.scss'
 import searchIcon from '../../assets/img/search.svg'
 import closeIcon from '../../assets/img/closeIcon.svg'
 import {useDispatch, useSelector} from "react-redux";
-import {selectorSort, setSearchValue} from "../../redux/slices/filterSlice";
+import {setSearchValue} from "../../redux/slices/filter/slice";
+import {selectorSort} from '../../redux/slices/filter/selector'
 import {debounce} from "@mui/material";
 
 const Search  = () : JSX.Element => {

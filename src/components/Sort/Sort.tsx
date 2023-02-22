@@ -1,11 +1,12 @@
 import React, {useEffect, useRef} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {selectSortItem, setSortType} from "../../redux/slices/filterSlice";
-
+import {setSortType} from "../../redux/slices/filter/slice";
+import {SortPropertyType} from '../../redux/slices/filter/types'
+import {selectSortItem} from '../../redux/slices/filter/selector'
 
 type sortListItem = {
     name: string,
-    sortProperty: string,
+    sortProperty: SortPropertyType,
 };
 
 
@@ -39,29 +40,29 @@ export const sortItems : sortListItem[] = [
 ];
 
 
-export const Sort : React.FC = () => {
+export const Sort : React.FC = React.memo(() => {
     const [isVisible,setIsVisible] = React.useState(false);
     const dispatch = useDispatch();
     const sort = useSelector(selectSortItem)
     const sortRef = useRef<HTMLDivElement>(null);
     function onClickSorting(obj : sortListItem) : void {
-         dispatch(setSortType(obj))
-         setIsVisible(!isVisible);
-     }
+        dispatch(setSortType(obj))
+        setIsVisible(!isVisible);
+    }
 
-      useEffect(()=>{
-          const handleClickOutside = (event : MouseEvent) => {
-              let path =  sortRef.current && event.composedPath().includes(sortRef.current)
-              if (!path) {
-                  setIsVisible(false);
-              }
-          };
+    useEffect(()=>{
+        const handleClickOutside = (event : MouseEvent) => {
+            let path =  sortRef.current && event.composedPath().includes(sortRef.current)
+            if (!path) {
+                setIsVisible(false);
+            }
+        };
 
-          document.body.addEventListener('click',handleClickOutside);
-          return () => document.body.removeEventListener('click',handleClickOutside)
-      },[])
+        document.body.addEventListener('click',handleClickOutside);
+        return () => document.body.removeEventListener('click',handleClickOutside)
+    },[])
 
-     return (
+    return (
         <div ref={sortRef} className="sort">
             <div className="sort__label">
                 <svg
@@ -97,5 +98,5 @@ export const Sort : React.FC = () => {
         </div>
 
     );
-};
+})
 
