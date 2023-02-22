@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-pizza/static/css/main.bf2ffb6d.css",
-    "main.js": "/react-pizza/static/js/main.39115aa8.js",
+    "main.css": "/react-pizza/static/css/main.9827d320.css",
+    "main.js": "/react-pizza/static/js/main.c3411d55.js",
     "static/media/ProximaNova-Regular.eot": "/react-pizza/static/media/ProximaNova-Regular.d97f8f32c098b28c3ab0.eot",
     "static/media/ProximaNova-Regular.ttf": "/react-pizza/static/media/ProximaNova-Regular.b078618b41b9b6629ea0.ttf",
     "static/media/ProximaNova-Bold.eot": "/react-pizza/static/media/ProximaNova-Bold.787088b281e017f8c449.eot",
@@ -19,11 +19,11 @@
     "static/media/closeIcon.svg": "/react-pizza/static/media/closeIcon.f0b4e8a776a99886c4fa931c07d26423.svg",
     "static/media/search.svg": "/react-pizza/static/media/search.4b070173faefee2ff419fbeec782588b.svg",
     "index.html": "/react-pizza/index.html",
-    "main.bf2ffb6d.css.map": "/react-pizza/static/css/main.bf2ffb6d.css.map",
-    "main.39115aa8.js.map": "/react-pizza/static/js/main.39115aa8.js.map"
+    "main.9827d320.css.map": "/react-pizza/static/css/main.9827d320.css.map",
+    "main.c3411d55.js.map": "/react-pizza/static/js/main.c3411d55.js.map"
   },
   "entrypoints": [
-    "static/css/main.bf2ffb6d.css",
-    "static/js/main.39115aa8.js"
+    "static/css/main.9827d320.css",
+    "static/js/main.c3411d55.js"
   ]
 }
